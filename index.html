@@ -32,7 +32,7 @@
         <div class="row">
             <form class="form-inline align-items-start col-3">
                 <div class="input-group mb-3 ml-3">
-                    <input type="text" class="form-control" placeholder="Oakland, CA" aria-label="Oakland, CA"
+                    <input id="cityForm" type="text" class="form-control" placeholder="Oakland, CA" aria-label="Oakland, CA"
                         aria-describedby="button-addon2">
                     <div class="input-group-append">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
@@ -42,7 +42,7 @@
         
             <div class="col-8 ">
                 <div class="container bg-light border">
-                    <h1 id= "" class="city align-items-start display-4">Oakland</h1>
+                    <h1 id= "currentCity" class="city align-items-start display-4"></h1>
                     <h2 id="today"></h2>
                     <p class="lead temprature">Temprature:</p>
                     <p class="lead humidity:">Humidity:</p>

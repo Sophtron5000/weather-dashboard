@@ -9,10 +9,12 @@ console.log(moment())
 //when I click 'search'
 $(document).ready(function() {
     $('#button-addon2').on('click', function() {
-        const cityText = $(this).attr('.form-control').val(); //calls on text value of class text
-        localStorage.setItem(cityText);
+        const cityText = $("#cityForm").val(); //calls on text value of class text
+        localStorage.setItem("city", cityText);
+        //getItem
+        //cityText append to dynamic <div>
         //var blockTime = $(this).parent().attr('id'); 
-    })
+   
     //function that takes in a string(city)
     //function citySearch(str) {
             //fetch city to geocache coordinates
@@ -24,7 +26,10 @@ $(document).ready(function() {
     
     //append the information to the page in unique classes
 
+ })});
 
+
+ $('#currentCity .text').val(localStorage.getItem("city"));
 // WHEN I view current weather conditions for that city
 // THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
 // WHEN I view the UV index

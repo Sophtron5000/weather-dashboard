@@ -6,16 +6,23 @@ var now = moment();
 $("#today").text(now.format("MMM Do, YYYY"))
 console.log(moment())
 
-//function that takes in a string(city)
-function citySearch(str) {
-        //fetch city to geocache coordinates
+//when I click 'search'
+$(document).ready(function() {
+    $('#button-addon2').on('click', function() {
+        const cityText = $(this).attr('.form-control').val(); //calls on text value of class text
+        localStorage.setItem(cityText);
+        //var blockTime = $(this).parent().attr('id'); 
+    })
+    //function that takes in a string(city)
+    //function citySearch(str) {
+            //fetch city to geocache coordinates
 
-    //fetch weather condition with geocache
+        //fetch weather condition with geocache
 
-        //save the search to local storage
-        //append history to appear under search bar
-}
-//append the information to the page in unique classes
+            //save the search to local storage
+            //append history to appear under search bar
+    
+    //append the information to the page in unique classes
 
 
 // WHEN I view current weather conditions for that city
@@ -26,5 +33,3 @@ function citySearch(str) {
 // THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 // WHEN I click on a city in the search history
 // THEN I am again presented with current and future conditions for that city
-
-

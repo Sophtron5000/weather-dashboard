@@ -1,0 +1,12 @@
+.container {
+    margin: 0;
+}
+
+.box {
+    display:inline-flex;
+    width:  150px; 
+    height: 200px;
+    margin: 15px;
+    background-color: blue;
+    border-radius: 20px;
+}

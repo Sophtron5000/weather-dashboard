@@ -7,26 +7,30 @@ $("#today").text(now.format("MMM Do, YYYY"))
 console.log(moment())
 
 //when I click 'search'
+//function that takes in a string(city)
 $(document).ready(function() {
     $('#button-addon2').on('click', function() {
+        //save input to local storage
+        //append history to appear under search bar
         const cityText = $("#cityForm").val(); //calls on text value of class text
         localStorage.setItem("city", cityText);
-        //getItem
-        //cityText append to dynamic <div>
-        //var blockTime = $(this).parent().attr('id'); 
-   
-    //function that takes in a string(city)
-    //function citySearch(str) {
+   //function to get geocache api, input is cityText? parse demo in class
+    function getApi( {
+       requestUrl = "apiUrl + cityText"
+   }) 
+    
             //fetch city to geocache coordinates
-
-        //fetch weather condition with geocache
-
-            //save the search to local storage
-            //append history to appear under search bar
+                //parsed geocache to lat long var
+         //fetch weather condition with parsed geocache
+            //parse data
+        //append data to unique classes
+    
+            
     
     //append the information to the page in unique classes
 
- })});
+ }
+ )});
 
 
  $('#currentCity .text').val(localStorage.getItem("city"));

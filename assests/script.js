@@ -36,6 +36,11 @@ $(document).ready(function() {
         //})//parsed geocache to lat long var
         .then(function (data){
             console.log(data)
+    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6"
+            return fetch(fiveDayForecast)
+        }).then(response => response.json())
+        .then(data => {
+            console.log(data)
         })
   } 
   fetchButton.addEventListener('click', getApi);

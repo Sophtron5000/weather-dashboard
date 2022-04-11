@@ -9,22 +9,31 @@
 //when I click 'search'
 //function that takes in a string(city)
 $(document).ready(function() {
-    $('#button-addon2').on('click', function() {
+    //$('#button-addon2').on('click', function() {
         //save input to local storage
         //append history to appear under search bar
-        const cityText = $("#cityForm").val(); //calls on text value of class text
-        localStorage.setItem("city", cityText);
+        //calls on text value of class text
+        
    //function to get geocache api, from text input
    var fetchButton = document.getElementById('button-addon2');
-   function getApi() {
+   function getApi() { console.log("click")
+       const cityText = $("#cityForm").val(); 
        var requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityText + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6";
-       var lat = response.json.stringify(data.lat)
-       var long = response.json.stringify(data.lon);
+       
+       //var lat = response.json.stringify(data.lat)
+       //var long = response.json.stringify(data.lon);
       //fetch city to geocache coordinates
        fetch(requestUrl)
-        .then(function (response) {
-            return response.json();
-        })//parsed geocache to lat long var
+        .then(response => response.json()) 
+        .then(data => {
+            localStorage.setItem("city", cityText);
+            const lat = data[0].lat
+            const long = data[0].lon
+            console.log(data)
+    var requestWeather = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6"
+            return fetch(requestWeather)
+        }).then(response => response.json()) 
+        //})//parsed geocache to lat long var
         .then(function (data){
             console.log(data)
         })
@@ -41,7 +50,7 @@ $(document).ready(function() {
     //append the information to the page in unique classes
 
  }
- )});
+ );
 
 
  $('#currentCity .text').val(localStorage.getItem("city"));

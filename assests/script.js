@@ -14,20 +14,24 @@ $(document).ready(function() {
         //append history to appear under search bar
         const cityText = $("#cityForm").val(); //calls on text value of class text
         localStorage.setItem("city", cityText);
-   //function to get geocache api, input is cityText? parse demo in class
-    //function getApi() {
-       var requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=oakland&appid=cbc02e46c2204d5b31b0aa9bbfa648e6";
+   //function to get geocache api, from text input
+   var fetchButton = document.getElementById('button-addon2');
+   function getApi() {
+       var requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityText + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6";
+       var lat = response.json.stringify(data.lat)
+       var long = response.json.stringify(data.lon);
+      //fetch city to geocache coordinates
        fetch(requestUrl)
         .then(function (response) {
             return response.json();
-        })
+        })//parsed geocache to lat long var
         .then(function (data){
             console.log(data)
         })
-  // } 
-    
-            //fetch city to geocache coordinates
-                //parsed geocache to lat long var
+  } 
+  fetchButton.addEventListener('click', getApi);
+            
+                
          //fetch weather condition with parsed geocache
             //parse data
         //append data to unique classes

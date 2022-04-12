@@ -30,18 +30,14 @@ $(document).ready(function() {
             const lat = data[0].lat
             const long = data[0].lon
             console.log(data)
-    var requestWeather = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6"
-            return fetch(requestWeather)
+    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6"
+            return fetch(fiveDayForecast)
         }).then(response => response.json()) 
         //})//parsed geocache to lat long var
         .then(function (data){
             console.log(data)
-    var fiveDayForecast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + data.coord.lat + "&lon=" + data.coord.lon + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6"
-            return fetch(fiveDayForecast)
-        }).then(response => response.json())
-        .then(data => {
-            console.log(data)
         })
+ 
   } 
   fetchButton.addEventListener('click', getApi);
             

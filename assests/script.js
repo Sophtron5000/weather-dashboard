@@ -33,7 +33,8 @@ $(document).ready(function() {
             console.log(data)    
         
                 var currentCity = document.createElement('h1');
-                // currentCity.classList("align-items-start display-4")
+                currentCity.classList.add("align-items-start")
+                currentCity.classList.add("display-4")
                 currentCity.textContent = data[0].name
 
                 currentWeather.append(currentCity)
@@ -44,7 +45,13 @@ $(document).ready(function() {
         //})//parsed geocache to lat long var
         .then(function (data){
             console.log(data);
-        
+            for (var i = 0; i < data.length; i++) {
+                var currentTemp = document.createElement('p');
+                currentTemp.classList.add("lead")
+                currentTemp.textContent = data[i].current.temp
+
+                currentWeather.append("Temprature: " + currentTemp)
+            }
         })
  
   } 

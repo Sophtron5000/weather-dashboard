@@ -45,13 +45,13 @@ $(document).ready(function() {
         //})//parsed geocache to lat long var
         .then(function (data){
             console.log(data);
-            for (var i = 0; i < data.length; i++) {
+            
                 var currentTemp = document.createElement('p');
                 currentTemp.classList.add("lead")
-                currentTemp.textContent = data[i].current.temp
+                currentTemp.textContent = data.current.temp
 
-                currentWeather.append("Temprature: " + currentTemp)
-            }
+                currentWeather.appendChild(currentTemp)
+            
         })
  
   } 

@@ -16,6 +16,7 @@ $(document).ready(function() {
         
    //function to get geocache api, from text input
    var fetchButton = document.getElementById('button-addon2');
+   var currentWeather = document.getElementById('currentWeather')
    function getApi() { console.log("click")
        const cityText = $("#cityForm").val(); 
        var requestUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityText + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6";
@@ -29,13 +30,20 @@ $(document).ready(function() {
             localStorage.setItem("city", cityText);
             const lat = data[0].lat
             const long = data[0].lon
-            console.log(data)
+            console.log(data)    
+        
+                var currentCity = document.getElementById('currentCity');
+                currentCity.textContent = data[0].name
+
+                currentWeather.append(currentCity)
+            
     var fiveDayForecast = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&appid=cbc02e46c2204d5b31b0aa9bbfa648e6"
             return fetch(fiveDayForecast)
         }).then(response => response.json()) 
         //})//parsed geocache to lat long var
         .then(function (data){
-            console.log(data)
+            console.log(data);
+        
         })
  
   } 

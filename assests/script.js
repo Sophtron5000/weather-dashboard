@@ -32,7 +32,8 @@ $(document).ready(function() {
             const long = data[0].lon
             console.log(data)    
         
-                var currentCity = document.getElementById('currentCity');
+                var currentCity = document.createElement('h1');
+                // currentCity.classList("align-items-start display-4")
                 currentCity.textContent = data[0].name
 
                 currentWeather.append(currentCity)
